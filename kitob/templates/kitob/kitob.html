@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Kitob Do'koni</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 25px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+
+        header p {
+            margin: 0;
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .book-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            width: 220px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+        }
+
+        .book-card img {
+            width: 100%;
+            height: 290px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .book-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 5px;
+        }
+
+        .book-author {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .book-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .buy-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📚 Online Kitob Do'koni</h1>
+        <p>Sevimli kitoblaringizni hamyonbop narxlarda xarid qiling</p>
+    </header>
+
+    <div class="container">
+
+        <div class="book-card">
+            <img src="https://kitobxon.com/img_knigi/103.jpg" alt="O'tkan kunlar">
+            <div class="book-title">O'tkan kunlar</div>
+            <div class="book-author">Abdulla Qodiriy</div>
+            <div class="book-price">45,000 so'm</div>
+            <form action="{% url 'sotib_olish' 'Otkan kunlar' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="buy-btn">Sotib olish</button>
+            </form>
+        </div>
+
+
+        <div class="book-card">
+            <img src="https://kitobxon.com/img_knigi/1054.jpg" alt="Sariq devni minib">
+            <div class="book-title">Sariq devni minib</div>
+            <div class="book-author">Xudoyberdi To'xtaboyev</div>
+            <div class="book-price">40,000 so'm</div>
+            <form action="{% url 'sotib_olish' 'Sariq devni minib' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="buy-btn">Sotib olish</button>
+            </form>
+        </div>
+
+
+        <div class="book-card">
+            <img src="https://kitobxon.com/img_knigi/182.jpg" alt="Yulduzli tunlar">
+            <div class="book-title">Yulduzli tunlar</div>
+            <div class="book-author">Pirimqul Qodirov</div>
+            <div class="book-price">55,000 so'm</div>
+            <form action="{% url 'sotib_olish' 'Yulduzli tunlar' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="buy-btn">Sotib olish</button>
+            </form>
+        </div>
+
+
+        <div class="book-card">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL.jpg" alt="Atom odatlari">
+            <div class="book-title">Atom odatlari</div>
+            <div class="book-author">James Clear</div>
+            <div class="book-price">55,000 so'm</div>
+            <form action="{% url 'sotib_olish' 'Atom odatlari' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="buy-btn">Sotib olish</button>
+            </form>
+        </div>
+
+
+        <div class="book-card">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71OZyEmgtKL.jpg" alt="Kichkina shahzoda">
+            <div class="book-title">Kichkina shahzoda</div>
+            <div class="book-author">Antuan de Sent-Ekzyuperi</div>
+            <div class="book-price">35,000 so'm</div>
+            <form action="{% url 'sotib_olish' 'Kichkina shahzoda' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="buy-btn">Sotib olish</button>
+            </form>
+        </div>
+
+
+        <div class="book-card">
+            <img src="https://kitobxon.com/img_knigi/104.jpg" alt="Mehrobdan chayon">
+            <div class="book-title">Mehrobdan chayon</div>
+            <div class="book-author">Abdulla Qodiriy</div>
+            <div class="book-price">42,000 so'm</div>
+            <form action="{% url 'sotib_olish' 'Mehrobdan chayon' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="buy-btn">Sotib olish</button>
+            </form>
+        </div>
+
+
+        <div class="book-card">
+            <img src="https://kitobxon.com/img_knigi/1052.jpg" alt="Shum bola">
+            <div class="book-title">Shum bola</div>
+            <div class="book-author">G'afur G'ulom</div>
+            <div class="book-price">36,000 so'm</div>
+            <form action="{% url 'sotib_olish' 'Shum bola' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="buy-btn">Sotib olish</button>
+            </form>
+        </div>
+
+
+        <div class="book-card">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71aFt4+OTOL.jpg" alt="Alkimyogar">
+            <div class="book-title">Alkimyogar</div>
+            <div class="book-author">Paulo Koelo</div>
+            <div class="book-price">48,000 so'm</div>
+            <form action="{% url 'sotib_olish' 'Alkimyogar' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="buy-btn">Sotib olish</button>
+            </form>
+        </div>
+
+
+        <div class="book-card">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81bsw6fnUiL.jpg" alt="Boy ota, kambag'al ota">
+            <div class="book-title">Boy ota, kambag'al ota</div>
+            <div class="book-author">Robert Kiyosaki</div>
+            <div class="book-price">50,000 so'm</div>
+            <form action="{% url 'sotib_olish' 'Boy ota kambagal ota' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="buy-btn">Sotib olish</button>
+            </form>
+        </div>
+
+
+        <div class="book-card">
+            <img src="https://kitobxon.com/img_knigi/279.jpg" alt="Ikki eshik orasi">
+            <div class="book-title">Ikki eshik orasi</div>
+            <div class="book-author">O'tkir Hoshimov</div>
+            <div class="book-price">52,000 so'm</div>
+            <form action="{% url 'sotib_olish' 'Ikki eshik orasi' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="buy-btn">Sotib olish</button>
+            </form>
+        </div>
+
+
+        <div class="book-card">
+            <img src="https://kitobxon.com/img_knigi/280.jpg" alt="Dunyoning ishlari">
+            <div class="book-title">Dunyoning ishlari</div>
+            <div class="book-author">O'tkir Hoshimov</div>
+            <div class="book-price">38,000 so'm</div>
+            <form action="{% url 'sotib_olish' 'Dunyoning ishlari' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="buy-btn">Sotib olish</button>
+            </form>
+        </div>
+
+
+        <div class="book-card">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71QS384bQjL.jpg" alt="Diqqat">
+            <div class="book-title">Diqqat (Deep Work)</div>
+            <div class="book-author">Kel Nyuport</div>
+            <div class="book-price">58,000 so'm</div>
+            <form action="{% url 'sotib_olish' 'Diqqat' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="buy-btn">Sotib olish</button>
+            </form>
+        </div>
+
+
+        <div class="book-card">
+            <img src="https://kitobxon.com/img_knigi/105.jpg" alt="Jimjitlik">
+            <div class="book-title">Jimjitlik</div>
+            <div class="book-author">Said Ahmad</div>
+            <div class="book-price">44,000 so'm</div>
+            <form action="{% url 'sotib_olish' 'Jimjitlik' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="buy-btn">Sotib olish</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
